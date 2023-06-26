@@ -42,60 +42,24 @@ else:
 Собирающий модуль за один заход, находясь непосредственно перед некоторым кустом, собирает ягоды с этого куста и с двух соседних с ним.
 Напишите программу для нахождения максимального числа ягод, которое может собрать за один заход собирающий модуль, находясь перед некоторым кустом заданной во входном файле грядки.
 '''
-# import random
+import random
 
-# n = int(input("Введите количество кустов: "))
+n = int(input("Введите количество кустов: "))
 
-# # Генерируем случайные значения для количества ягод на каждом кусте
-# berries = [random.randint(1, 10) for _ in range(n)]
-# print(berries)
-# # Добавляем первый и последний куст в конец и начало списка для учета соседей
-# berries.append(berries[0])
-# berries.insert(0, berries[-2])
+# Генерируем случайные значения для количества ягод на каждом кусте
+berries = [random.randint(1, 10) for _ in range(n)]
+print(berries)
+# Добавляем первый и последний куст в конец и начало списка для учета соседей
+berries.append(berries[0])
+berries.insert(0, berries[-2])
 
-# max_berries = 0
+max_berries = 0
 
-# # Проходим по каждому кусту, начиная с второго и заканчивая предпоследним
-# for i in range(1, n+1):
-#     total_berries = berries[i] + berries[i-1] + berries[i+1]
-#     max_berries = max(max_berries, total_berries)
-
-
-# print("Максимальное количество ягод, которое может собрать собирающий модуль: ", max_berries)
+# Проходим по каждому кусту, начиная с второго и заканчивая предпоследним
+for i in range(1, n+1):
+    total_berries = berries[i] + berries[i-1] + berries[i+1]
+    max_berries = max(max_berries, total_berries)
 
 
-# n = int(input())
-# a = list(map(int, input().split()))
+print("Максимальное количество ягод, которое может собрать собирающий модуль: ", max_berries)
 
-# maxsum = 0
-
-# for i in range(n):
-# 	cursum = sum(a[i:i+3])
-# 	if cursum > maxsum:
-# 		maxsum = cursum
-# if a[0] + a[-1] + a[-2] > maxsum:
-# 	maxsum = a[0] + a[-1] + a[-2]
-# if a[0] + a[1] + a[-1] > maxsum:
-# 	maxsum = a[0] + a[1] + a[-1]
-
-# print(maxsum)
-
-# import random
-
-# n = int(input("Введите количество элементов: "))
-
-# # Генерируем случайные значения для списка
-# a = [random.randint(1, 10) for _ in range(n)]
-# print(a)
-# max_sum = 0
-
-# for i in range(n):
-#     cursum = sum(a[i:i+3])
-#     if cursum > max_sum:
-#         max_sum = cursum
-# if a[0] + a[-1] + a[-2] > max_sum:
-#     max_sum = a[0] + a[-1] + a[-2]
-# if a[0] + a[1] + a[-1] > max_sum:
-#     max_sum = a[0] + a[1] + a[-1]
-
-# print("Максимальная сумма ягод:", max_sum)
