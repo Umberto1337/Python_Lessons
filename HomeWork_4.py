@@ -2,36 +2,34 @@
 Выдать без повторений в порядке возрастания все те числа, которые встречаются в обоих наборах.
 Пользователь вводит 2 числа. n — кол-во элементов первого множества. m — кол-во элементов второго множества. 
 Затем пользователь вводит сами элементы множеств.'''
-import random
+# import random
 
-n = int(input("Введите количество элементов первого множества: "))
-m = int(input("Введите количество элементов второго множества: "))
+# n = int(input("Введите количество элементов первого множества: "))
+# m = int(input("Введите количество элементов второго множества: "))
 
-set1 = set()
-set2 = set()
+# set1 = set()
+# set2 = set()
 
-print("Сгенерированные элементы первого множества:")
-for _ in range(n):
-    num = random.randint(1, 20)
-    set1.add(num)
-    print(num, end=" ")
+# print("Сгенерированные элементы первого множества:")
+# for _ in range(n):
+#     num = random.randint(1, 20)
+#     set1.add(num)
+#     print(num, end=" ")
 
-print("\nСгенерированные элементы второго множества:")
-for _ in range(m):
-    num = random.randint(1, 20)
-    set2.add(num)
-    print(num, end=" ")
+# print("\nСгенерированные элементы второго множества:")
+# for _ in range(m):
+#     num = random.randint(1, 20)
+#     set2.add(num)
+#     print(num, end=" ")
 
-common_elements = sorted(set1.intersection(set2))
+# common_elements = sorted(set1.intersection(set2))
 
-print("\nОбщие элементы, без повторений, в порядке возрастания:")
-if len(common_elements) > 0:
-    for num in common_elements:
-        print(num, end=" ")
-else:
-    print("Общих элементов не найдено")
-
-
+# print("\nОбщие элементы, без повторений, в порядке возрастания:")
+# if len(common_elements) > 0:
+#     for num in common_elements:
+#         print(num, end=" ")
+# else:
+#     print("Общих элементов не найдено")
 
 '''
 В фермерском хозяйстве в Карелии выращивают чернику. 
@@ -42,24 +40,46 @@ else:
 Собирающий модуль за один заход, находясь непосредственно перед некоторым кустом, собирает ягоды с этого куста и с двух соседних с ним.
 Напишите программу для нахождения максимального числа ягод, которое может собрать за один заход собирающий модуль, находясь перед некоторым кустом заданной во входном файле грядки.
 '''
-import random
+# import random
 
-n = int(input("Введите количество кустов: "))
+# n = int(input("Введите количество кустов: "))
 
-# Генерируем случайные значения для количества ягод на каждом кусте
-berries = [random.randint(1, 10) for _ in range(n)]
-print(berries)
-# Добавляем первый и последний куст в конец и начало списка для учета соседей
-berries.append(berries[0])
-berries.insert(0, berries[-2])
+# # Генерируем случайные значения для количества ягод на каждом кусте
+# berries = [random.randint(1, 10) for _ in range(n)]
+# print(berries)
+# # Добавляем первый и последний куст в конец и начало списка для учета соседей
+# berries.append(berries[0])
+# berries.insert(0, berries[-2])
 
-max_berries = 0
+# max_berries = 0
 
-# Проходим по каждому кусту, начиная с второго и заканчивая предпоследним
-for i in range(1, n+1):
-    total_berries = berries[i] + berries[i-1] + berries[i+1]
-    max_berries = max(max_berries, total_berries)
+# # Проходим по каждому кусту, начиная с второго и заканчивая предпоследним
+# for i in range(1, n+1):
+#     total_berries = berries[i] + berries[i-1] + berries[i+1]
+#     max_berries = max(max_berries, total_berries)
 
 
-print("Максимальное количество ягод, которое может собрать собирающий модуль: ", max_berries)
+# print("Максимальное количество ягод, которое может собрать собирающий модуль: ", max_berries)
 
+
+# # Решение 2
+
+# import random
+
+# n = int(input("Введите количество элементов: "))
+
+# # Генерируем случайные значения для списка
+# berries = [random.randint(1, 10) for _ in range(n)]
+# print(berries)
+# max_sum = 0
+
+# for i in range(n):
+#     cursum = sum(berries[i:i+3])
+#     if cursum > max_sum:
+#         max_sum = cursum
+# if berries[0] + berries[-1] + berries[-2] > max_sum:
+#     max_sum = berries[0] + berries[-1] + berries[-2]
+# if berries[0] + berries[1] + berries[-1] > max_sum:
+#     max_sum = berries[0] + berries[1] + berries[-1]
+
+# print("Максимальная сумма ягод:", max_sum)
